@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "![thumb-1920-380534](https://user-images.githubusercontent.com/61664827/140514007-738547dc-c163-4488-81a7-ca1cac532d03.png)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Utkarsh-Shukla-Github/NodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Utkarsh-Shukla-Github/NodeJS/issues"
+  },
+  "homepage": "https://github.com/Utkarsh-Shukla-Github/NodeJS#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
