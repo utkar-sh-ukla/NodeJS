@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
         console.log(err);
         res.end();
     }
-        res.write(data);
+        // res.write(data);
         res.end(data);
     });
 
