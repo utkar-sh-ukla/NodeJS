@@ -7,13 +7,11 @@ const Blog = require('./models/blog');
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI =
-  'mongodb+srv://node-user:user%40123@cluster0.7ybpp.mongodb.net/note-tuts?retryWrites=true&w=majority';
+const dbURI = "mongodb+srv://netninja:test1234@net-ninja-tuts-del96.mongodb.net/node-tuts";
 
-mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then((result) => app.listen(3000))
-  .catch((err) => console.log(err));
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(result => app.listen(3000))
+  .catch(err => console.log(err));
 
 // register view engine
 app.set('view engine', 'ejs');
@@ -42,12 +40,11 @@ app.get('/blogs/create', (req, res) => {
 });
 
 app.get('/blogs', (req, res) => {
-  Blog.find()
-    .sort({ createdAt: -1 })
-    .then((result) => {
+  Blog.find().sort({ createdAt: -1 })
+    .then(result => {
       res.render('index', { blogs: result, title: 'All blogs' });
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 });
@@ -56,12 +53,11 @@ app.post('/blogs', (req, res) => {
   // console.log(req.body);
   const blog = new Blog(req.body);
 
-  blog
-    .save()
-    .then((result) => {
+  blog.save()
+    .then(result => {
       res.redirect('/blogs');
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 });
@@ -69,22 +65,22 @@ app.post('/blogs', (req, res) => {
 app.get('/blogs/:id', (req, res) => {
   const id = req.params.id;
   Blog.findById(id)
-    .then((result) => {
+    .then(result => {
       res.render('details', { blog: result, title: 'Blog Details' });
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 });
 
 app.delete('/blogs/:id', (req, res) => {
   const id = req.params.id;
-
+  
   Blog.findByIdAndDelete(id)
-    .then((result) => {
+    .then(result => {
       res.json({ redirect: '/blogs' });
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
     });
 });
